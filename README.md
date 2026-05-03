@@ -21,7 +21,7 @@ To ensure high design quality and functionality, the team is organized into the 
 | :--- | :--- | :--- |
 | **Kernel Architect** | Modifying `proc.h` and managing kernel-side process table access. | --name-- |
 | **System Call Engineer** | Defining syscall interfaces and managing memory copying (`copyout`). | --name-- |
-| **Algorithm Specialist** | Implementing the recursive tree-building logic and handling edge cases. | --name-- |
+| **Algorithm Specialist** | Implementing the recursive tree-building logic and handling edge cases. | Farag |
 | **UI/CLI Developer** | Crafting the terminal output format and indentation logic. | Wezza |
 | **DevOps & QA** | Managing the Git repository, version control, and stress-testing the visualizer. | --name-- |
 
