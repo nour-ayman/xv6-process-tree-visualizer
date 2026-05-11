@@ -1,0 +1,6 @@
+*.tar.xz
+*.out
+*.o
+*.d
+kernel/kernel
+user/_*
