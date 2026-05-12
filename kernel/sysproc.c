@@ -93,6 +93,26 @@ sys_kill(void)
   return kkill(pid);
 }
 
+uint64
+sys_getproctree(void)
+{
+  uint64 user_addr;
+  if (argaddr(0, &user_addr) < 0) {
+    return -1;
+  }
+
+  // This is a placeholder. In a real scenario, you would call a function
+  // to populate a buffer with process tree information.
+  char kernel_buffer[] = "process tree data";
+  int data_size = sizeof(kernel_buffer);
+
+  if (copyout(myproc()->pagetable, user_addr, kernel_buffer, data_size) != 0) {
+    return -1;
+  }
+
+  return 0;
+}
+
 // return how many clock tick interrupts have occurred
 // since start.
 uint64
