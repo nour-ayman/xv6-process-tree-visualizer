@@ -20,7 +20,7 @@ To ensure high design quality and functionality, the team is organized into the 
 | Role | Responsibility | Assigned Roles |
 | :--- | :--- | :--- |
 | **Kernel Architect** | Modifying `proc.h` and managing kernel-side process table access. | --name-- |
-| **System Call Engineer** | Defining syscall interfaces and managing memory copying (`copyout`). | --name-- |
+| **System Call Engineer** | Defining syscall interfaces and managing memory copying (`copyout`). | Omar |
 | **Algorithm Specialist** | Implementing the recursive tree-building logic and handling edge cases. | Farag |
 | **UI/CLI Developer** | Crafting the terminal output format and indentation logic. | Wezza |
 | **Memory & Performance Optimizer** | Managing memory allocation for process data transfer between Kernel and User space, ensuring efficient syscall execution, and optimizing the tree traversal algorithm to prevent stack overflows or memory leaks in Xv6. | --name-- |
