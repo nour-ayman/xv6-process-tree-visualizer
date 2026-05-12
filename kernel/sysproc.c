@@ -97,9 +97,9 @@ uint64
 sys_getproctree(void)
 {
   uint64 user_addr;
-  if (argaddr(0, &user_addr) < 0) {
-    return -1;
-  }
+  
+  // FIXED: argaddr returns void in RISC-V xv6, so we just call it directly.
+  argaddr(0, &user_addr);
 
   // This is a placeholder. In a real scenario, you would call a function
   // to populate a buffer with process tree information.
