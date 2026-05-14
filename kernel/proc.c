@@ -685,3 +685,31 @@ procdump(void)
     printf("\n");
   }
 }
+
+// Helper function for the pstree system call to collect active processes data
+int
+get_proc_tree_data(struct proc_info *info_array) {
+  struct proc *p;
+  int count = 0;
+
+  // Loop through the process table defined in kernel
+  for(p = proc; p < &proc[NPROC]; p++) {
+    acquire(&p->lock);
+    if(p->state != UNUSED) {
+      info_array[count].pid = p->pid;
+      
+      // Check if process has a parent to get its PID
+      if(p->parent) {
+        info_array[count].ppid = p->parent->pid;
+      } else {
+        info_array[count].ppid = 0; // Root process (init)
+      }
+      
+      // Copy process name safely
+      safestrcpy(info_array[count].name, p->name, sizeof(p->name));
+      count++;
+    }
+    release(&p->lock);
+  }
+  return count; // Return total number of active processes found
+}
