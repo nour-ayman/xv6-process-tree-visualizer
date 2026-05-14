@@ -105,3 +105,10 @@ struct proc {
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
 };
+
+// This struct will be used to pass process information from kernel space to user space
+struct proc_info {
+  int pid;           // Process ID
+  int ppid;          // Parent Process ID
+  char name[16];     // Process Name
+};
