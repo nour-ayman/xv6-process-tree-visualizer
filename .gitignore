@@ -4,3 +4,8 @@
 *.d
 kernel/kernel
 user/_*
+*.sym
+*.asm
+fs.img
+mkfs/mkfs
+.gdbinit
