@@ -17,13 +17,13 @@ The implementation is divided into three main layers:
 ## 4. Team Roles & Responsibilities
 To ensure high design quality and functionality, the team is organized into the following roles:
 
-| Role | Responsibility | Assigned Roles |
-| :--- | :--- | :--- |
-| **Kernel Architect** | Modifying `proc.h` and managing kernel-side process table access. | --name-- |
-| **System Call Engineer** | Defining syscall interfaces and managing memory copying (`copyout`). | --name-- |
-| **Algorithm Specialist** | Implementing the recursive tree-building logic and handling edge cases. | Farag |
-| **UI/CLI Developer** | Crafting the terminal output format and indentation logic. | Wezza |
-| **Memory & Performance Optimizer** | Managing memory allocation for process data transfer between Kernel and User space, ensuring efficient syscall execution, and optimizing the tree traversal algorithm to prevent stack overflows or memory leaks in Xv6. | --name-- |
+| Role | Responsibility | Key Files | Assigned To |
+| :--- | :--- | :--- | :--- |
+| **Kernel Architect** | Modifying `proc.h` and managing kernel-side process table structures. | `kernel/proc.h`, `kernel/defs.h` | *Ahmed Medhat* |
+| **System Call Engineer (A)** | **The Syscall Registrar:** Defining syscall interfaces, ID mapping, and Assembly traps. | `kernel/syscall.h`, `kernel/syscall.c`, `user/usys.pl` | *Omar Walid* |
+| **System Call Engineer (B)** | **The Syscall Boundary Guard:** Managing memory argument retrieval, pointer safety, and kernel boundaries. | `kernel/sysproc.c` | *Seif Hashem* |
+| **Algorithm Specialist** | Implementing the core data-traversal logic inside the kernel to collect process info. | `kernel/proc.c`, `user/ulib.c` | **Farag** |
+| **UI/CLI Developer** | Crafting the terminal output format, depth tracking, and recursive indentation logic. | `user/pstree.c`, `user/user.h` | **Wezza** |
 
 ## 5. Workflow & Branching Strategy
 To ensure smooth collaboration, each team member must work on a dedicated Git branch named after their role.
