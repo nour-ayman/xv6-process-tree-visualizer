@@ -62,12 +62,6 @@ To maintain an organized workflow, we use a **Product Backlog**. Each team membe
 - [ ] Develop the terminal rendering logic (using `|--` and `\t` for indentation).
 - [ ] Ensure the output is clean and visually intuitive as per the project goals.
 
-#### 🔴 Memory & Performance Optimizer
-- [ ] Struct Alignment: Optimize the `proc_info` struct to minimize padding and ensure efficient memory copying.
-- [ ] Buffer Management: Determine the optimal size for the process array to handle Xv6's max process limit (`NPROC`) without wasting memory
-- [ ] Recursion Safety: Monitor the stack usage of the recursive algorithm in User space to prevent crashes if the process tree becomes too deep.
-- [ ] System Call Benchmarking: Measure the time/cycles taken by the syscall to ensure it doesn't slow down the kernel during high process loads.
-
 > [!WARNING]  
 > **Team Note:** This backlog covers all functional requirements as outlined in the project guidelines. Completion of these tasks is mandatory for a functional project. Any additional features implemented beyond this scope are considered elective enhancements for project excellence
 
