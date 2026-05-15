@@ -1,6 +1,8 @@
 #define SBRK_ERROR ((char *)-1)
 
 struct stat;
+//project
+struct proc_info; //Forward declaration
 
 // system calls
 int fork(void);
@@ -48,3 +50,7 @@ void printf(const char*, ...) __attribute__ ((format (printf, 1, 2)));
 // umalloc.c
 void* malloc(uint);
 void free(void*);
+
+//project
+int getproctree(struct proc_info*);
+//aashan lama tektib `getproctree(procs)` gowa el`pstree.c` el compiler mayestlakhbtsh w ye'ol: "ana mesh aaref el function de betaat eh"

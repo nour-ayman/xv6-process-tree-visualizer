@@ -107,8 +107,10 @@ struct proc {
 };
 
 // This struct will be used to pass process information from kernel space to user space
-struct proc_info {
+
+/* struct proc_info {
   int pid;           // Process ID
   int ppid;          // Parent Process ID
   char name[16];     // Process Name
 };
+*/

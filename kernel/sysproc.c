@@ -6,6 +6,7 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "vm.h"
+#include "user/proc_info.h"
 
 uint64
 sys_exit(void)
@@ -104,4 +105,24 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+// Inside kernel/sysproc.c (The System Call Wrapper)
+uint64
+sys_getproctree(void)
+{
+  uint64 u_array; // User-space address
+  struct proc_info k_array[NPROC]; // Temporary kernel buffer
+
+  // Get the pointer passed from User Space
+  argaddr(0, &u_array);
+
+  // Call the helper function to fill k_array
+  int count = get_proc_tree_data(k_array);
+
+  // Safely copy the WHOLE array back to User Space
+  if(copyout(myproc()->pagetable, u_array, (char *)k_array, count * sizeof(struct proc_info)) < 0)
+    return -1;
+
+  return count;
 }

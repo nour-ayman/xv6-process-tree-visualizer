@@ -5,6 +5,7 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "defs.h"
+#include "../user/proc_info.h"
 
 struct cpu cpus[NCPU];
 
@@ -713,3 +714,4 @@ get_proc_tree_data(struct proc_info *info_array) {
   }
   return count; // Return total number of active processes found
 }
+
